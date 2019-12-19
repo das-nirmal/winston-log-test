@@ -15,7 +15,7 @@ app.use(expressWinston.logger({
     transports: [logger],
     colorize: true,
     meta: true,
-    msg: `HTTP {{req.method}} {{req.url}} - {{req.ip}}`
+    msg: `Received from IP - {{req.ip}}`
 }))
 
 app.get('*', (req, res) => {
