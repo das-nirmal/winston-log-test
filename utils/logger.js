@@ -1,10 +1,20 @@
 const winston = require('winston');
-require('winston-papertrail').Papertrail;
 
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.Console()
+    ]
+});
+
+module.exports = logger;
+
+/*
 if (process.env.production) {
-    // const logger = new winston.transports.Papertrail({
-    //     host: 
-    // })
+    const logger = new winston.transports.Papertrail({
+        host: 
+    })
 }
 
 module.exports = {
@@ -16,3 +26,4 @@ module.exports = {
         console.error(`[INFO] - ${msg}`);
     }
 };
+*/
